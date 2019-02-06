@@ -28,7 +28,7 @@ public class ClientProgram {
 		double baseRate = 25.00;
 		double serviceHours;
 		double flatFee = 50.00;
-		double emergencyRate = 50.00;
+		double emergencyRate = 2;
 		
 		/*
 		 * Case driven menu using a flag
@@ -62,7 +62,7 @@ public class ClientProgram {
 							System.out.println("Regular Service Quote"
 									+ "\nflat fee charge: $" + flatFee
 									+ "\nService hours requested: " + serviceHours
-									+ " * " + baseRate
+									+ " * $" + baseRate
 									+ "\nRegular Service Total: $"+ r1.calculateCost());
 							break;
 						
@@ -72,7 +72,11 @@ public class ClientProgram {
 							serviceHours = console.nextInt();
 							
 							e1 = new EmergencyService(emergencyRate, 0, "", "", baseRate, serviceHours);
-							System.out.println("Emergency Service total: $" + e1.calculateCost());
+							System.out.println("Emergency Service Quote"
+									+ "\nEmergency Rate:  Emergency rate * Base rate * service hours"
+									+ "\nEmergency Rate: " + emergencyRate + " * " + baseRate + " * " + serviceHours
+									+ "\nEmergency Service total: $" + e1.calculateCost());
+							break;
 							
 						case 3:
 							break;
