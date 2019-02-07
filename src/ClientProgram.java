@@ -36,9 +36,10 @@ public class ClientProgram {
 		boolean flag = true;
 		int choice;
 		while(flag) {
-			System.out.println("\n---------- Menu ----------");
+			System.out.println("---------- Menu ----------");
 			System.out.println("1. Get a Service Quote. "
 							+ "\n2. Request a Service. "
+							+ "\n3. Exit"
 							+ "\nEnter choice: ");
 			
 			choice = console.nextInt();
@@ -83,7 +84,11 @@ public class ClientProgram {
 							break;
 							
 						case 3:
-							break;
+							System.out.println();
+							return;
+							
+						default:
+							System.out.println("Invalid choice. Choose again.");
 					}//end nested switch for quote
 				
 				case 2:
@@ -109,7 +114,7 @@ public class ClientProgram {
 							lastName = console.next();
 							System.out.print("Enter amount of hours: ");
 							serviceHours = console.nextDouble();
-							//manually entered invoiceNumber. Will make random generater handle this later.
+							//manually entered invoiceNumber. Will make random generator handle this later.
 							invoiceNumber = 004124;
 							
 							r1 = new RegularService(flatFee, invoiceNumber, firstName, lastName, baseRate, serviceHours);
@@ -121,43 +126,33 @@ public class ClientProgram {
 									+ "\nHourly Rate: $" + baseRate
 									+ "\nHours of service: " + serviceHours + "hrs");
 							System.out.println("Total service cost: $" + r1.calculateCost());
+							System.out.println();
 							break;
 						
 						case 2: 
-							System.out.println("Emergency Service Quote");
-							System.out.println("Enter Service hours: ");
-							serviceHours = console.nextInt();
-							
-							e1 = new EmergencyService(emergencyRate, 0, "", "", baseRate, serviceHours);
-							System.out.println("Emergency Service Quote"
-									+ "\nEmergency Rate:  Emergency rate * Base rate * service hours"
-									+ "\nEmergency Rate: " + emergencyRate + " * " + baseRate + " * " + serviceHours
-									+ "\nEmergency Service total: $" + e1.calculateCost());
+							//incomplete
+							System.out.println("Emergency Services are temporarily unavailable. \nSorry for the inconvenience. You will be redirected back the Main Menue.");
 							System.out.println();
 							break;
 							
 						case 3:
 							break;
 					}//end nested switch
+									
+				case 3:
+					System.out.println("Thank you for visiting.");
+					flag = false;
+					break;
+					
+				default: 
+					System.out.println("Invalid input. Please try again.");
+					break;
 					
 			}//end switch
 		}//end while
 		
-		System.out.println("Enter invoice #: ");
-		invoiceNumber = console.nextInt();
-		
-		System.out.println("Enter First name: ");
-		firstName = console.next();
-		
-		System.out.println("Enter Last name: ");
-		lastName = console.next();
-		
-		System.out.println("Enter service hours: ");
-		serviceHours = console.nextDouble();
-		
-		r1 = new RegularService(flatFee, invoiceNumber, firstName, lastName, baseRate, serviceHours );
-		
-		System.out.print("Regular Service total: $" + r1.calculateCost() );
+		//r1 = new RegularService(flatFee, invoiceNumber, firstName, lastName, baseRate, serviceHours );
+		//System.out.print("Regular Service total: $" + r1.calculateCost() );
 		
 	}
 
