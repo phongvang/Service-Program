@@ -85,7 +85,7 @@ public class ClientProgram {
 							
 						case 3:
 							System.out.println();
-							return;
+							break;
 							
 						default:
 							System.out.println("Invalid choice. Choose again.");
@@ -151,8 +151,10 @@ public class ClientProgram {
 			}//end switch
 		}//end while
 		
-		//r1 = new RegularService(flatFee, invoiceNumber, firstName, lastName, baseRate, serviceHours );
-		//System.out.print("Regular Service total: $" + r1.calculateCost() );
+	}
+	
+	public void QuoteRequest() {
+	
 		
 	}
 
